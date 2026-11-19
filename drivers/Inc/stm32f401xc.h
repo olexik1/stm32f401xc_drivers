@@ -112,14 +112,14 @@ typedef struct
 	Peripheral definitions
 */
 
-#define GPIOA 							(GPIO_RegDef_t*) GPIOA_BASEADDR
-#define GPIOB 							(GPIO_RegDef_t*) GPIOB_BASEADDR
-#define GPIOC 							(GPIO_RegDef_t*) GPIOC_BASEADDR
-#define GPIOD 							(GPIO_RegDef_t*) GPIOD_BASEADDR
-#define GPIOE 							(GPIO_RegDef_t*) GPIOE_BASEADDR
-#define GPIOH 							(GPIO_RegDef_t*) GPIOH_BASEADDR
+#define GPIOA 							((GPIO_RegDef_t*) GPIOA_BASEADDR)
+#define GPIOB 							((GPIO_RegDef_t*) GPIOB_BASEADDR)
+#define GPIOC 							((GPIO_RegDef_t*) GPIOC_BASEADDR)
+#define GPIOD 							((GPIO_RegDef_t*) GPIOD_BASEADDR)
+#define GPIOE 							((GPIO_RegDef_t*) GPIOE_BASEADDR)
+#define GPIOH 							((GPIO_RegDef_t*) GPIOH_BASEADDR)
 
-#define RCC								(RCC_RegDef_t*)  RCC_BASEADDR
+#define RCC								((RCC_RegDef_t*)  RCC_BASEADDR)
 
 /*
 	Clock Enable Macros for GPIOx Peripherals
@@ -204,6 +204,15 @@ typedef struct
 */
 
 #define SYSCFG_PCLK_DI()				( RCC->APB2ENR &= ~(1 << 15) )
+
+// Some generic macros
+
+#define ENABLE 							1
+#define DISABLE 						0
+#define SET 							ENABLE
+#define RESET 							DISABLE
+#define GPIO_PIN_SET					SET
+#define GPIO_PIN_RESET					RESET
 
 #endif
 
